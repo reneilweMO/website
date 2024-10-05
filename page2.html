@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Page 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your CV Information</h1>
+        <p>Name: <input type="text" id="name" placeholder="Enter your name"></p>
+        <p>Phone: <input type="text" id="phone" placeholder="Enter your phone number"></p>
+        <p>Email: <input type="email" id="email" placeholder="Enter your email address"></p>
+        <p>LinkedIn: <input type="text" id="linkedin" placeholder="LinkedIn URL"></p>
+        <p>Address: <input type="text" id="address" placeholder="Enter your address"></p>
+    </header>
+
+    <button onclick="goToNextPage()">Next</button>
+    <button onclick="goToPrevPage()">Back</button>
+    <script>
+        // Load stored values
+        document.getElementById('name').value = localStorage.getItem('name') || '';
+        document.getElementById('phone').value = localStorage.getItem('phone') || '';
+        document.getElementById('email').value = localStorage.getItem('email') || '';
+        document.getElementById('linkedin').value = localStorage.getItem('linkedin') || '';
+        document.getElementById('address').value = localStorage.getItem('address') || '';
+
+        // Save values on input change
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', function() {
+                localStorage.setItem(this.id, this.value);
+            });
+        });
+
+        function goToNextPage() {
+            window.location.href = 'page3.html';
+        }
+        function goToPrevPage() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

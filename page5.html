@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Page 5</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Download Your CV</h1>
+    </header>
+
+    <button onclick="downloadCV()">Download CV as PDF</button>
+    <button onclick="goToPrevPage()">Back</button>
+
+    <script>
+        async function downloadCV() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+
+            // Retrieve values from localStorage
+            const name = localStorage.getItem('name') || 'Your Name';
+            const phone = localStorage.getItem('phone') || 'N/A';
+            const email = localStorage.getItem('email') || 'N/A';
+            const summary = localStorage.getItem('summary') || 'N/A';
+            const skills = localStorage.getItem('skills') || 'N/A';
+            const degree = localStorage.getItem('degree') || 'N/A';
+            const field = localStorage.getItem('field') || 'N/A';
+            const university = localStorage.getItem('university') || 'N/A';
+            const location = localStorage.getItem('location') || 'N/A';
+            const graduation = localStorage.getItem('graduation') || 'N/A';
+            const certifications = localStorage.getItem('certifications') || 'N/A';
+            const projects = localStorage.getItem('projects') || 'N/A';
+            const volunteer = localStorage.getItem('volunteer') || 'N/A';
+            const languages = localStorage.getItem('languages') || 'N/A';
+
+            // Create PDF content
+            pdf.text("Curriculum Vitae", 10, 10);
+            pdf.text("Name: " + name, 10, 20);
+            pdf.text("Phone: " + phone, 10, 30);
+            pdf.text("Email: " + email, 10, 40);
+            pdf.text("Professional Summary: " + summary, 10, 50);
+            pdf.text("Skills: " + skills, 10, 60);
+            pdf.text("Education:", 10, 70);
+            pdf.text("Degree: " + degree, 10, 80);
+            pdf.text("Field of Study: " + field, 10, 90);
+            pdf.text("University: " + university, 10, 100);
+            pdf.text("Location: " + location, 10, 110);
+            pdf.text("Graduation Date: " + graduation, 10, 120);
+            pdf.text("Certifications: " + certifications, 10, 130);
+            pdf.text("Projects: " + projects, 10, 140);
+            pdf.text("Volunteer Experience: " + volunteer, 10, 150);
+            pdf.text("Languages: " + languages, 10, 160);
+
+            // Save the PDF
+            pdf.save("cv.pdf");
+        }
+
+        function goToPrevPage() {
+            window.location.href = 'page4.html';
+        }
+    </script>
+</body>
+</html>

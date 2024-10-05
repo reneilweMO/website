@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Page 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>Professional Summary</h2>
+        <textarea id="summary" placeholder="Write your summary here..." rows="4"></textarea>
+    </header>
+
+    <section>
+        <h2>Work Experience</h2>
+        <div id="work-experience">
+            <div class="job-entry">
+                <input type="text" placeholder="Job Title">
+                <input type="text" placeholder="Company Name">
+                <input type="text" placeholder="Location">
+                <input type="text" placeholder="Dates of Employment">
+                <textarea placeholder="Key responsibilities and achievements..." rows="3"></textarea>
+            </div>
+        </div>
+        <button onclick="addJob()">Add More Job Experience</button>
+    </section>
+
+    <button onclick="goToPrevPage()">Back</button>
+    <button onclick="goToNextPage()">Next</button>
+
+    <script>
+        // Load stored values
+        document.getElementById('summary').value = localStorage.getItem('summary') || '';
+
+        // Save value on input change
+        document.getElementById('summary').addEventListener('input', function() {
+            localStorage.setItem('summary', this.value);
+        });
+
+        function addJob() {
+            const jobEntry = document.createElement('div');
+            jobEntry.classList.add('job-entry');
+            jobEntry.innerHTML = `
+                <input type="text" placeholder="Job Title">
+                <input type="text" placeholder="Company Name">
+                <input type="text" placeholder="Location">
+                <input type="text" placeholder="Dates of Employment">
+                <textarea placeholder="Key responsibilities and achievements..." rows="3"></textarea>
+            `;
+            document.getElementById('work-experience').appendChild(jobEntry);
+        }
+
+        function goToPrevPage() {
+            window.location.href = 'page2.html';
+        }
+
+        function goToNextPage() {
+            window.location.href = 'page4.html';
+        }
+    </script>
+</body>
+</html>

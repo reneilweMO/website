@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Page 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <h2>Education</h2>
+        <input type="text" id="degree" placeholder="Degree">
+        <input type="text" id="field" placeholder="Field of Study">
+        <input type="text" id="university" placeholder="University Name">
+        <input type="text" id="location" placeholder="Location">
+        <input type="text" id="graduation" placeholder="Graduation Date">
+    </section>
+
+    <section>
+        <h2>Skills</h2>
+        <textarea id="skills" placeholder="List your skills..." rows="4"></textarea>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <textarea id="certifications" placeholder="List your certifications..." rows="4"></textarea>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <textarea id="projects" placeholder="Describe your projects..." rows="4"></textarea>
+    </section>
+
+    <section>
+        <h2>Volunteer Experience</h2>
+        <textarea id="volunteer" placeholder="Describe your volunteer work..." rows="4"></textarea>
+    </section>
+
+    <section>
+        <h2>Languages</h2>
+        <textarea id="languages" placeholder="List languages and proficiency..." rows="4"></textarea>
+    </section>
+
+    <button onclick="goToPrevPage()">Back</button>
+    <button onclick="goToNextPage()">Next</button>
+
+    <script>
+        // Load stored values
+        document.getElementById('degree').value = localStorage.getItem('degree') || '';
+        document.getElementById('field').value = localStorage.getItem('field') || '';
+        document.getElementById('university').value = localStorage.getItem('university') || '';
+        document.getElementById('location').value = localStorage.getItem('location') || '';
+        document.getElementById('graduation').value = localStorage.getItem('graduation') || '';
+        document.getElementById('skills').value = localStorage.getItem('skills') || '';
+        document.getElementById('certifications').value = localStorage.getItem('certifications') || '';
+        document.getElementById('projects').value = localStorage.getItem('projects') || '';
+        document.getElementById('volunteer').value = localStorage.getItem('volunteer') || '';
+        document.getElementById('languages').value = localStorage.getItem('languages') || '';
+
+        // Save values on input change
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                localStorage.setItem(this.id, this.value);
+            });
+        });
+
+        function goToPrevPage() {
+            window.location.href = 'page3.html';
+        }
+
+        function goToNextPage() {
+            window.location.href = 'page5.html';
+        }
+    </script>
+</body>
+</html>
