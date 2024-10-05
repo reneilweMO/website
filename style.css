@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('your-background-image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    color: #fff;
+}
+
+header, section {
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #007BFF; /* Add a border */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f9fa; /* Light background for inputs */
+    color: #333; /* Dark text color */
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+input:focus, textarea:focus {
+    border-color: #007BFF; /* Highlight on focus */
+    outline: none; /* Remove outline */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 10px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.job-entry {
+    margin-bottom: 15px;
+}
+
+#profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin-bottom: 15px;
+    display: none;
+}
